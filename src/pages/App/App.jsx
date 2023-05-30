@@ -12,7 +12,13 @@ export default function App() {
   const [myRepos, setMyRepos] = useState([]);
 
   function addRepo(newRepo) {
-    const newRepos = [...myRepos, newRepo];
+    const repoAlreadyPresent = myRepos.includes(newRepo)
+    let newRepos;
+    if (!repoAlreadyPresent) {
+      newRepos = [...myRepos, newRepo];
+    } else {
+      newRepos = myRepos
+    }
     setMyRepos(newRepos);
   }
   function deleteRepo(repoToDelete) {
