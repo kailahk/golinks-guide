@@ -3,7 +3,7 @@ import './SearchReposPage.css';
 import { getRepos } from '../../utilities/repos-service';
 import Results from '../../components/Results/Results';
 
-export default function SearchReposPage({setRepos, repos}) {
+export default function SearchReposPage({setRepos, repos, setMyRepos, addRepo}) {
   const [formData, setFormData] = useState({
     keyword: '',
     sort: 'updated',
@@ -43,7 +43,7 @@ export default function SearchReposPage({setRepos, repos}) {
         <button type="submit">Search!</button>
       </form>
       <br /><hr /><br />
-      <Results repos={repos} />
+      <Results repos={repos} setMyRepos={setMyRepos} addRepo={addRepo}/>
     </div>
   );
 }
